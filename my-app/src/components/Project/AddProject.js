@@ -6,7 +6,7 @@ import classnames from 'classnames';
 
 class AddProject extends Component {
     constructor(){
-        super()
+        super();
 
         this.state={
             projectName:"",
@@ -17,7 +17,7 @@ class AddProject extends Component {
             errors: {}
         };
 
-        this.onChange = this.onChange.bind(this)
+        this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
     }
 
