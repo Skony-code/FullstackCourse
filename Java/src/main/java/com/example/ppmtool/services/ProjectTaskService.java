@@ -64,4 +64,18 @@ public class ProjectTaskService {
             throw new ProjectNotFoundException("Project Tak '"+pt_id+"' does not exist in project: '"+backlog_id);
         return  projectTask;
     }
+
+    public ProjectTask updateByProjectSequence(ProjectTask updatedTask, String backlog_id) {
+
+        Backlog backlog = backlogRepository.findByProjectIdentifier(backlog_id);
+        if(backlog==null) throw new ProjectNotFoundException("Project with ID: '"+backlog_id+"' does not exist");
+
+        return projectTaskRepository.save(updatedTask);
+    }
+
+    public void deletePTByProjectSequence(String backlog_id,String pt_id) {
+        ProjectTask projectTask = findPTByProjectSequence(backlog_id,pt_id);
+
+        projectTaskRepository.delete(projectTask);
+    }
 }
